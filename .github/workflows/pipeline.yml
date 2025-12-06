@@ -1,33 +1,20 @@
-name: Docker-Ladder
+name: Docker-Ladder CI
 
 on:
   push:
     branches: [ "main" ]
 
 jobs:
-  Get-code:
-  name: Check and build
-  runs-on: ubuntu-latest
+ 
+  build-verification:
 
-  steps:
+    name: Build Docker Image Check
+    runs-on: ubuntu-latest
 
-    - name: checkout-code
-      uses: actions/checkout@v4
+    steps:
+ 
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: setup-python:3.12-alpine
-      uses: actions/setup-python@v4
-      with:
-        python-version: "3.12-alpine"
-    
-    - name: Install dependencies
-      runs: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-
-    - name: Image build
-      runs: docker build . -t final-boss
-       
-
-
-
-    
+      - name: Build Docker Image
+        run: docker build . -t final-boss
