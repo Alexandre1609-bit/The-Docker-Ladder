@@ -1,0 +1,23 @@
+name: Docker-Ladder
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  Get-code:
+    name: Check and build
+    run-on: ubuntu-latest
+
+  steps:
+
+    - name: checkout-code
+      uses: actions/checkout@v4
+
+    - name: Image build
+      run: docker build . -t final-boss
+       
+
+
+
+    
