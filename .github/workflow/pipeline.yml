@@ -1,7 +1,8 @@
 name: Docker-Ladder
 
 on:
-  push: [ "main" ]
+  push:
+    branches: [ "main" ]
 
 jobs:
   Get-code:
