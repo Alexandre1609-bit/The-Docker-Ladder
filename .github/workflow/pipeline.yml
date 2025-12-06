@@ -5,16 +5,18 @@ on:
     branches: [ "main" ]
 
 jobs:
-  Get-code:
-    name: Check and build
+
+  Build-verification:
+
+    name: Build Docker ImageImage Check
     run-on: ubuntu-latest
 
   steps:
 
-    - name: checkout-code
+    - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Image build
+    - name: Build Docker image
       run: docker build . -t final-boss
        
 
